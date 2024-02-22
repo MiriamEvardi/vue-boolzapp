@@ -27,8 +27,12 @@
         <div class="background-top"></div>
 
         <div class="chat-container">
-            <div class="side-bar">
 
+            <!-- sidebar -->
+            <div class="side-bar border-end border-secondary-subtle">
+
+
+                <!-- my profile -->
                 <div class="profile d-flex justify-content-between">
                     <div class="d-flex align-items-center">
                         <div class="profile-pic me-1"></div>
@@ -41,6 +45,8 @@
                     </div>
                 </div>
 
+
+                <!-- notifications -->
                 <div class="notification d-flex align-items-center">
                     <div class="profile-pic me-2"></div>
                     <div class="lh-1">
@@ -49,6 +55,8 @@
                     </div>
                 </div>
 
+
+                <!-- search bar -->
                 <div class="search-bar p-2">
                     <div class="input-group flex-nowrap">
                         <span class="input-group-text px-4" id="addon-wrapping"><i
@@ -58,6 +66,8 @@
                     </div>
                 </div>
 
+
+                <!-- contacts -->
                 <div class="contacts">
                     <div class="contact d-flex align-items-start pt-2">
                         <div class="user-pic me-3"></div>
@@ -165,22 +175,27 @@
 
 
             <div class="chat d-flex flex-column justify-content-between">
+
+                <!-- user profile when chat is opened -->
                 <div class="addressee d-flex justify-content-between align-items-center">
                     <div class="d-flex align-items-center">
                         <div class="profile-pic me-1"></div>
-                        <div class="ms-3">
+                        <div class="ms-3 lh-2">
                             <div> Miriam </div>
-                            <div>Ultimo accesso alle 12:00</div>
+                            <div class="last-access">Ultimo accesso alle 12:00</div>
                         </div>
                     </div>
+
                     <div class="d-flex justify-content-between align-items-center gap-3 fs-5 me-3">
-                        <i class="fa-solid fa-circle-notch"></i>
-                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </div>
 
                 <div class="middle-container">
+
+                    <!-- my message -->
                     <div class="message-container d-flex justify-content-end mt-4">
                         <div class="my-message">
                             <p><span
@@ -189,6 +204,8 @@
                             <div class="d-flex justify-content-end time">12:00</div>
                         </div>
                     </div>
+
+                    <!-- user messages -->
                     <div class="message-container d-flex justify-content-start mt-4">
                         <div class="your-message">
                             <p><span class="message-text ">ciaoo</span></p>
@@ -197,17 +214,19 @@
                     </div>
                 </div>
 
+
+                <!-- chat text -->
                 <div class="chat-text">
                     <div class=" addressee d-flex align-items-center justify-content-between">
 
                         <div class="px-4">
-                            <i class="fa-solid fa-circle-notch fs-4"></i>
+                            <i class="fa-regular fa-face-smile fs-3 text-secondary"></i>
                         </div>
                         <input type="text" class="form-control p-2" placeholder="Scrivi un messaggio"
                             aria-label="chat-text" aria-describedby="basic-addon1">
 
                         <div class="px-4">
-                            <i class="fa-solid fa-circle-notch fs-4"></i>
+                            <i class="fa-solid fa-microphone fs-3 text-secondary"></i>
                         </div>
                     </div>
 

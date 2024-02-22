@@ -83,7 +83,7 @@ a {
 
 .contacts {
     height: calc(100% - 84px - 70px - 82px + 28px);
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .contact {
@@ -113,6 +113,11 @@ a {
     color: #bfc6d4;
 }
 
+.last-access {
+    color: #547c8e;
+    font-size: 14px;
+}
+
 .middle-container {
     flex: 1;
 
@@ -120,6 +125,8 @@ a {
 
     background-image: url(../img/mine.jpg);
     background-color: #f0f0f0;
+
+    overflow-y: auto;
 }
 
 .form-control {
