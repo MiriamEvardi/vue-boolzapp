@@ -37,6 +37,7 @@ body {
 
 .side-bar {
     flex: 1;
+
     background-color: #fff;
     border: solid black 1px;
 }
@@ -44,4 +45,72 @@ body {
 .profile {
     height: 70px;
     background-color: #eaeaea;
+}
+
+.profile-pic {
+    background-color: blueviolet;
+
+    margin-left: 10px;
+
+    height: 50px;
+    width: 50px;
+
+    border-radius: 30px;
+}
+
+i {
+    color: #b1b1b1;
+}
+
+.notification {
+    height: 84px;
+    background-color: #8edafc;
+}
+
+a {
+    color: #547c8e;
+    font-size: 14px;
+}
+
+.search-bar {
+    background-color: #fafafa;
+}
+
+#addon-wrapping {
+    background-color: white;
+}
+
+.contacts {
+    height: calc(100% - 84px - 70px - 82px + 28px);
+    overflow-y: scroll;
+}
+
+.contact {
+    height: 82px;
+    background-color: white;
+    border: #e9ebeb 1px solid;
+    padding-left: 10px;
+}
+
+.user-pic {
+    background-color: blueviolet;
+
+    height: 60px;
+    width: 60px;
+
+    border-radius: 30px;
+}
+
+.name {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.last-message {
+    font-size: 15px;
+    color: #bfc6d4;
+}
+
+.content {
+    background-color: #fff;
 }
