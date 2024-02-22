@@ -35,6 +35,11 @@ body {
     background-color: #fff;
 }
 
+img {
+    width: 100%;
+    border-radius: 30px;
+}
+
 .side-bar {
     flex: 1;
 
@@ -95,8 +100,6 @@ a {
 }
 
 .user-pic {
-    background-color: blueviolet;
-
     height: 60px;
     width: 60px;
 

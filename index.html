@@ -69,103 +69,20 @@
 
                 <!-- contacts -->
                 <div class="contacts">
-                    <div class="contact d-flex align-items-start pt-2">
-                        <div class="user-pic me-3"></div>
-                        <div>
-                            <div class="lh-2 mb-3">
-                                <div class="name">Miriam</div>
-                                <div class="last-message">Ultimo messaggio inviato</div>
-                            </div>
-                        </div>
-                        <div class="last-message ms-auto me-2">12:00</div>
-                    </div>
 
-                    <div class="contact d-flex align-items-start pt-2">
-                        <div class="user-pic me-3"></div>
+                    <div class="contact d-flex align-items-start pt-2" v-for="currentContact in contacts">
+                        <div class="user-pic me-3">
+                            <img :src="currentContact.avatar" alt="">
+                        </div>
                         <div>
                             <div class="lh-2 mb-3">
-                                <div class="name">Miriam</div>
-                                <div class="last-message">Ultimo messaggio inviato</div>
+                                <div class="name">{{currentContact.name}}</div>
+                                <div class="last-message">
+                                    {{ getLastMessage(currentContact) }}
+                                </div>
                             </div>
                         </div>
-                        <div class="last-message ms-auto me-2">12:00</div>
-                    </div>
-
-                    <div class="contact d-flex align-items-start pt-2">
-                        <div class="user-pic me-3"></div>
-                        <div>
-                            <div class="lh-2 mb-3">
-                                <div class="name">Miriam</div>
-                                <div class="last-message">Ultimo messaggio inviato</div>
-                            </div>
-                        </div>
-                        <div class="last-message ms-auto me-2">12:00</div>
-                    </div>
-
-                    <div class="contact d-flex align-items-start pt-2">
-                        <div class="user-pic me-3"></div>
-                        <div>
-                            <div class="lh-2 mb-3">
-                                <div class="name">Miriam</div>
-                                <div class="last-message">Ultimo messaggio inviato</div>
-                            </div>
-                        </div>
-                        <div class="last-message ms-auto me-2">12:00</div>
-                    </div>
-
-                    <div class="contact d-flex align-items-start pt-2">
-                        <div class="user-pic me-3"></div>
-                        <div>
-                            <div class="lh-2 mb-3">
-                                <div class="name">Miriam</div>
-                                <div class="last-message">Ultimo messaggio inviato</div>
-                            </div>
-                        </div>
-                        <div class="last-message ms-auto me-2">12:00</div>
-                    </div>
-
-                    <div class="contact d-flex align-items-start pt-2">
-                        <div class="user-pic me-3"></div>
-                        <div>
-                            <div class="lh-2 mb-3">
-                                <div class="name">Miriam</div>
-                                <div class="last-message">Ultimo messaggio inviato</div>
-                            </div>
-                        </div>
-                        <div class="last-message ms-auto me-2">12:00</div>
-                    </div>
-
-                    <div class="contact d-flex align-items-start pt-2">
-                        <div class="user-pic me-3"></div>
-                        <div>
-                            <div class="lh-2 mb-3">
-                                <div class="name">Miriam</div>
-                                <div class="last-message">Ultimo messaggio inviato</div>
-                            </div>
-                        </div>
-                        <div class="last-message ms-auto me-2">12:00</div>
-                    </div>
-
-                    <div class="contact d-flex align-items-start pt-2">
-                        <div class="user-pic me-3"></div>
-                        <div>
-                            <div class="lh-2 mb-3">
-                                <div class="name">Miriam</div>
-                                <div class="last-message">Ultimo messaggio inviato</div>
-                            </div>
-                        </div>
-                        <div class="last-message ms-auto me-2">12:00</div>
-                    </div>
-
-                    <div class="contact d-flex align-items-start pt-2">
-                        <div class="user-pic me-3"></div>
-                        <div>
-                            <div class="lh-2 mb-3">
-                                <div class="name">Miriam</div>
-                                <div class="last-message">Ultimo messaggio inviato</div>
-                            </div>
-                        </div>
-                        <div class="last-message ms-auto me-2">12:00</div>
+                        <div class="last-message ms-auto me-2">{{getLastTime(currentContact)}}</div>
                     </div>
 
 
