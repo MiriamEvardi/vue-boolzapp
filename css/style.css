@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #d6dbd9;
+}
+
+.background-top {
+    position: relative;
+
+    height: 150px;
+
+    background-color: #009688;
+}
+
+.chat-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 200px;
+    right: 200px;
+
+    margin-top: 28px;
+    margin-bottom: 28px;
+
+    display: flex;
+}
+
+.content {
+    flex: 2;
+    background-color: #fff;
+    border: solid black 1px;
+}
+
+.side-bar {
+    flex: 1;
+    background-color: #fff;
+    border: solid black 1px;
+}
+
+.profile {
+    height: 70px;
+    background-color: #eaeaea;
+}
