@@ -3,6 +3,9 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+
+            activeIndex: 0,
+
             contacts: [
                 {
                     name: 'Michele',
@@ -185,8 +188,12 @@ createApp({
             const timeSplit = dateTime[1].split(':');
             const hours = `${dateTime[1], timeSplit[0]}:${timeSplit[1]}`
             return hours;
+        },
 
-        }
+        activeContact(index) {
+            this.activeIndex = index;
+        },
+
     },
 
 }).mount("#app");

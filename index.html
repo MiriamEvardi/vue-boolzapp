@@ -70,7 +70,8 @@
                 <!-- contacts -->
                 <div class="contacts">
 
-                    <div class="contact d-flex align-items-start pt-2" v-for="currentContact in contacts">
+                    <div class="contact d-flex align-items-start pt-2" v-for="(currentContact, index) in contacts"
+                        @click="activeContact(index)" :class=" index == activeIndex ? 'active' : ''">
                         <div class="user-pic me-3">
                             <img :src="currentContact.avatar" alt="">
                         </div>
@@ -84,7 +85,6 @@
                         </div>
                         <div class="last-message ms-auto me-2">{{getLastTime(currentContact)}}</div>
                     </div>
-
 
                 </div>
             </div>
@@ -110,23 +110,26 @@
                     </div>
                 </div>
 
-                <div class="middle-container">
 
-                    <!-- my message -->
-                    <div class="message-container d-flex justify-content-end mt-4">
-                        <div class="my-message">
-                            <p><span
-                                    class="message-text">ciaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaoo</span>
-                            </p>
-                            <div class="d-flex justify-content-end time">12:00</div>
+                <!-- Chat box -->
+                <div class="middle-container" v-for="(currentChat, index) in contacts" v-show="index == activeIndex">
+
+                    <div class="message-container mt-4" v-for="currentMessage in currentChat.messages">
+
+                        <!--my messages -->
+                        <div v-if="currentMessage.status === 'sent'" class="d-flex justify-content-end">
+                            <div class="my-message">
+                                <p><span class="message-text">{{ currentMessage.message }}</span></p>
+                                <div class="d-flex justify-content-end time">{{ getLastTime(currentChat) }}</div>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- user messages -->
-                    <div class="message-container d-flex justify-content-start mt-4">
-                        <div class="your-message">
-                            <p><span class="message-text ">ciaoo</span></p>
-                            <div class="d-flex justify-content-end time">12:00</div>
+                        <!-- user messages -->
+                        <div v-else class="d-flex justify-content-start">
+                            <div class="your-message">
+                                <p><span class="message-text">{{ currentMessage.message }}</span></p>
+                                <div class="d-flex justify-content-end time">{{ getLastTime(currentChat) }}</div>
+                            </div>
                         </div>
                     </div>
                 </div>

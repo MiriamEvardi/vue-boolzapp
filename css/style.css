@@ -10,7 +10,10 @@ body {
 
 .background-top {
     position: relative;
-
+    left: 0;
+    right: 0;
+    top: 0;
+    min-width: 100%;
     height: 150px;
 
     background-color: #009688;
@@ -36,7 +39,7 @@ body {
 }
 
 img {
-    width: 100%;
+    height: 100%;
     border-radius: 30px;
 }
 
@@ -97,6 +100,10 @@ a {
 
     background-color: white;
     border: #e9ebeb 1px solid;
+}
+
+.active {
+    background-color: #d5f9ba;
 }
 
 .user-pic {
