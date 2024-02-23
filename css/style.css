@@ -143,14 +143,10 @@ a {
     flex: 1;
 }
 
-.message-container {
-    max-width: 100%;
-
-    overflow-wrap: break-word;
-}
-
 .my-message,
 .your-message {
+
+    overflow-wrap: break-word;
 
     padding: 10px;
     padding-bottom: 0px;

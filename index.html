@@ -116,19 +116,19 @@
 
 
                 <!-- Chat box -->
-                <div class="middle-container" v-for="(currentChat, index) in contacts" v-show="index == activeIndex">
+                <div class="middle-container p-4">
 
-                    <div class="message-container mt-4" v-for="currentMessage in currentChat.messages">
+                    <!--messages -->
+                    <div class="d-flex" v-for="currentMessage in contacts[activeIndex].messages"
+                        :class="currentMessage.status == 'sent'? 'justify-content-end' : 'justify-content-start'">
 
-                        <!--messages -->
-                        <div class="d-flex"
-                            :class="currentMessage.status == 'sent'? 'justify-content-end' : 'justify-content-start'">
-                            <div class="my-message" :class="currentMessage.status == 'sent'? 'sent' : 'received'">
-                                <p><span class="message-text">{{ currentMessage.message }}</span></p>
-                                <div class="d-flex justify-content-end time">{{ getLastTime(currentChat) }}</div>
-                            </div>
+                        <div class="my-message mb-2" :class="currentMessage.status == 'sent'? 'sent' : 'received'">
+                            <p><span class="message-text">{{ currentMessage.message }}</span></p>
+
+                            <div class="d-flex justify-content-end time">{{ getLastTime(currentMessage) }}</div>
                         </div>
                     </div>
+
                 </div>
 
 

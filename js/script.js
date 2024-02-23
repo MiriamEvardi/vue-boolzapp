@@ -183,11 +183,15 @@ createApp({
         },
 
         getLastTime(contact) {
-            const lastMessage = contact.messages[contact.messages.length - 1];
-            const dateTime = lastMessage.date.split(' ');
-            const timeSplit = dateTime[1].split(':');
-            const hours = `${dateTime[1], timeSplit[0]}:${timeSplit[1]}`
-            return hours;
+            if (contact.messages && contact.messages.length > 0) {
+                const lastMessage = contact.messages[contact.messages.length - 1];
+                const dateTime = lastMessage.date.split(' ');
+                const timeSplit = dateTime[1].split(':');
+                const hours = `${timeSplit[0]}:${timeSplit[1]}`; // Correzione: corretto l'accesso all'ora
+                return hours;
+            } else {
+                return ''; // Ritorna una stringa vuota se non ci sono messaggi
+            }
         },
 
         activeContact(index) {
