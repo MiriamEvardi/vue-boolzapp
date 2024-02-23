@@ -6,6 +6,7 @@ createApp({
 
             activeIndex: 0,
             myNewMessage: '',
+            search: '',
 
             contacts: [
                 {
@@ -174,32 +175,32 @@ createApp({
         }
     },
 
+
+    computed: {
+        filteredList() {
+            return this.contacts.filter(contact => {
+                return contact.name.toLowerCase().indexOf(this.search.toLowerCase()) !== -1;
+            });
+        }
+    },
+
     methods: {
-
-        // getLastMessage(contact) {
-        //     if (contact.messages.length > 0) {
-        //         const lastMessage = contact.messages[contact.messages.length - 1];
-        //         return lastMessage.message; // Accedi al testo del messaggio
-        //     }
-        // },
-
         getLastTime(contact) {
-
             if (contact.messages && contact.messages.length > 0) {
                 const lastMessage = contact.messages[contact.messages.length - 1];
                 const dateTime = lastMessage.date.split(' ');
                 const timeSplit = dateTime[1].split(':');
-                const hours = `${timeSplit[0]}:${timeSplit[1]}`; // Correzione: corretto l'accesso all'ora
+                const hours = `${timeSplit[0]}:${timeSplit[1]}`;
                 return hours;
             } else {
-                return ''; // Ritorna una stringa vuota se non ci sono messaggi
+                return '';
             }
         },
 
         getTime(message) {
             const dateTime = message.date.split(' ');
             const timeSplit = dateTime[1].split(':');
-            const hours = `${timeSplit[0]}:${timeSplit[1]}`; // Correzione: corretto l'accesso all'ora
+            const hours = `${timeSplit[0]}:${timeSplit[1]}`;
             return hours;
         },
 
@@ -220,22 +221,15 @@ createApp({
                 });
 
                 setTimeout(() => {
-
                     this.contacts[this.activeIndex].messages.push({
                         date: `${date} ${time}`,
                         message: "Ok",
                         status: 'received'
                     });
-
-
                 }, 1000);
 
                 this.myNewMessage = '';
             }
         }
-
-
-
     }
-
 }).mount("#app");

@@ -61,8 +61,8 @@
                     <div class="input-group flex-nowrap">
                         <span class="input-group-text px-4" id="addon-wrapping"><i
                                 class="fa-solid fa-magnifying-glass"></i></span>
-                        <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
-                            aria-label="Username" aria-describedby="addon-wrapping">
+                        <input type="text" class="form-control" placeholmder="Cerca o inizia una nuova chat"
+                            aria-label="Username" aria-describedby="addon-wrapping" v-model="search">
                     </div>
                 </div>
 
@@ -70,8 +70,8 @@
                 <!-- contacts -->
                 <div class="contacts">
 
-                    <div class="contact d-flex align-items-start pt-2" v-for="(currentContact, index) in contacts"
-                        @click="activeContact(index)" :class=" index == activeIndex ? 'active' : ''">
+                    <div class="contact d-flex align-items-start pt-2" v-for="(currentContact, index) in filteredList"
+                        :class=" index == activeIndex ? 'active' : ''">
                         <div class="user-pic me-3">
                             <img :src="currentContact.avatar" alt="">
                         </div>
