@@ -151,7 +151,7 @@ a {
 
 .my-message,
 .your-message {
-    background-color: #ffffff;
+
     padding: 10px;
     padding-bottom: 0px;
     border-radius: 10px;
@@ -166,13 +166,17 @@ p {
     margin: 0;
 }
 
-.my-message {
-    background-color: #d5f9ba;
-}
-
 .message-text {
     border-radius: 10px;
     flex-wrap: wrap;
+}
+
+.sent {
+    background-color: #d5f9ba;
+}
+
+.received {
+    background-color: #ffffff;
 }
 
 .time {

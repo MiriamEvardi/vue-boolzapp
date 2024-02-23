@@ -120,17 +120,10 @@
 
                     <div class="message-container mt-4" v-for="currentMessage in currentChat.messages">
 
-                        <!--my messages -->
-                        <div v-if="currentMessage.status === 'sent'" class="d-flex justify-content-end">
-                            <div class="my-message">
-                                <p><span class="message-text">{{ currentMessage.message }}</span></p>
-                                <div class="d-flex justify-content-end time">{{ getLastTime(currentChat) }}</div>
-                            </div>
-                        </div>
-
-                        <!-- user messages -->
-                        <div v-else class="d-flex justify-content-start">
-                            <div class="your-message">
+                        <!--messages -->
+                        <div class="d-flex"
+                            :class="currentMessage.status == 'sent'? 'justify-content-end' : 'justify-content-start'">
+                            <div class="my-message" :class="currentMessage.status == 'sent'? 'sent' : 'received'">
                                 <p><span class="message-text">{{ currentMessage.message }}</span></p>
                                 <div class="d-flex justify-content-end time">{{ getLastTime(currentChat) }}</div>
                             </div>
