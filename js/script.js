@@ -5,6 +5,7 @@ createApp({
         return {
 
             activeIndex: 0,
+            myNewMessage: '',
 
             contacts: [
                 {
@@ -175,14 +176,15 @@ createApp({
 
     methods: {
 
-        getLastMessage(contact) {
-            if (contact.messages.length > 0) {
-                const lastMessage = contact.messages[contact.messages.length - 1];
-                return lastMessage.message; // Accedi al testo del messaggio
-            }
-        },
+        // getLastMessage(contact) {
+        //     if (contact.messages.length > 0) {
+        //         const lastMessage = contact.messages[contact.messages.length - 1];
+        //         return lastMessage.message; // Accedi al testo del messaggio
+        //     }
+        // },
 
         getLastTime(contact) {
+
             if (contact.messages && contact.messages.length > 0) {
                 const lastMessage = contact.messages[contact.messages.length - 1];
                 const dateTime = lastMessage.date.split(' ');
@@ -194,10 +196,46 @@ createApp({
             }
         },
 
+        getTime(message) {
+            const dateTime = message.date.split(' ');
+            const timeSplit = dateTime[1].split(':');
+            const hours = `${timeSplit[0]}:${timeSplit[1]}`; // Correzione: corretto l'accesso all'ora
+            return hours;
+        },
+
         activeContact(index) {
             this.activeIndex = index;
         },
 
-    },
+        addNewMessage() {
+            if (this.myNewMessage !== '') {
+                const now = new Date();
+                const date = now.toLocaleDateString();
+                const time = now.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+
+                this.contacts[this.activeIndex].messages.push({
+                    date: `${date} ${time}`,
+                    message: this.myNewMessage,
+                    status: 'sent'
+                });
+
+                setTimeout(() => {
+
+                    this.contacts[this.activeIndex].messages.push({
+                        date: `${date} ${time}`,
+                        message: "Ok",
+                        status: 'received'
+                    });
+
+
+                }, 1000);
+
+                this.myNewMessage = '';
+            }
+        }
+
+
+
+    }
 
 }).mount("#app");

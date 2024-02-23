@@ -79,7 +79,7 @@
                             <div class="lh-2 mb-3">
                                 <div class="name">{{currentContact.name}}</div>
                                 <div class="last-message">
-                                    {{ getLastMessage(currentContact) }}
+                                    <!-- {{ getLastMessage(currentContact) }} -->
                                 </div>
                             </div>
                         </div>
@@ -120,12 +120,13 @@
 
                     <!--messages -->
                     <div class="d-flex" v-for="currentMessage in contacts[activeIndex].messages"
-                        :class="currentMessage.status == 'sent'? 'justify-content-end' : 'justify-content-start'">
+                        :class="currentMessage.status == 'sent'? 'justify-content-end' : 'justify-content-start'"
+                        @submit="addNewMessage()">
 
                         <div class="my-message mb-2" :class="currentMessage.status == 'sent'? 'sent' : 'received'">
                             <p><span class="message-text">{{ currentMessage.message }}</span></p>
 
-                            <div class="d-flex justify-content-end time">{{ getLastTime(currentMessage) }}</div>
+                            <div class="d-flex justify-content-end time">{{ getTime(currentMessage) }}</div>
                         </div>
                     </div>
 
@@ -140,7 +141,8 @@
                             <i class="fa-regular fa-face-smile fs-3 text-secondary"></i>
                         </div>
                         <input type="text" class="form-control p-2" placeholder="Scrivi un messaggio"
-                            aria-label="chat-text" aria-describedby="basic-addon1">
+                            aria-label="chat-text" aria-describedby="basic-addon1" @keyup.enter="addNewMessage()"
+                            v-model="myNewMessage">
 
                         <div class="px-4">
                             <i class="fa-solid fa-microphone fs-3 text-secondary"></i>
