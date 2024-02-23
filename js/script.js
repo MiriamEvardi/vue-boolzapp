@@ -249,7 +249,7 @@ createApp({
         },
 
         deleteMessage(messageIndex) {
-            this.contacts.messages.message.splice(messageIndex, -1);
+            this.contacts[this.activeIndex].messages.splice(messageIndex, 1);
         }
     }
 }).mount("#app");
