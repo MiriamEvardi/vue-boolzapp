@@ -232,8 +232,24 @@ createApp({
             }
         },
 
+        getLastMessage(contact) {
+            if (contact.messages && contact.messages.length > 0) {
+                const lastMessage = contact.messages[contact.messages.length - 1];
+                let messageText = lastMessage.message;
+                const maxLength = 30;
+
+                if (messageText.length > maxLength) {
+                    messageText = messageText.substring(0, maxLength) + '...';
+                }
+
+                return messageText;
+            } else {
+                return '';
+            }
+        },
+
         deleteMessage(messageIndex) {
-            this.contacts.messages.message.splice(messageIndex, 1);
+            this.contacts.messages.message.splice(messageIndex, -1);
         }
     }
 }).mount("#app");

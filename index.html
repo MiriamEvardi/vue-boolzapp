@@ -75,7 +75,7 @@
                 <div class="contacts">
 
                     <div class="contact d-flex align-items-start pt-2" v-for="(currentContact, index) in filteredList"
-                        @click="activeContact(index)" :class=" index == activeIndex ? 'active' : ''">
+                        :class=" index == activeIndex ? 'active' : ''" @click="activeContact(index)">
                         <div class="user-pic me-3">
                             <img :src="currentContact.avatar" alt="">
                         </div>
@@ -83,6 +83,7 @@
                             <div class="lh-2 mb-3">
                                 <div class="name">{{currentContact.name}}</div>
                                 <div class="last-message">
+                                    {{ getLastMessage(currentContact) }}
                                 </div>
                             </div>
                         </div>
@@ -126,7 +127,7 @@
                         :class="currentMessage.status == 'sent'? 'justify-content-end' : 'justify-content-start'"
                         @submit="addNewMessage()">
 
-                        <div class="my-message mb-2 position-relative"
+                        <div class="my-message mb-2 position-relative me-2"
                             :class="currentMessage.status == 'sent'? 'sent' : 'received'">
                             <div>
                                 <p><span class="message-text">{{ currentMessage.message }}</span></p>

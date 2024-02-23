@@ -104,6 +104,7 @@ a {
 .contact {
     height: 82px;
     padding-left: 10px;
+    cursor: pointer;
 
     background-color: white;
     border: #e9ebeb 1px solid;
