@@ -56,8 +56,6 @@ img {
 }
 
 .profile-pic {
-    background-color: blueviolet;
-
     margin-left: 10px;
 
     height: 50px;
@@ -68,6 +66,15 @@ img {
 
 i {
     color: #b1b1b1;
+}
+
+.notify-icon {
+    background-color: #f2fbff;
+
+}
+
+.notify-icon i {
+    color: #8edafc;
 }
 
 .notification {
