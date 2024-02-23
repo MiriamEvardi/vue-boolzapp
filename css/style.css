@@ -152,14 +152,14 @@ a {
 
 .my-message,
 .your-message {
-
     overflow-wrap: break-word;
 
     padding: 10px;
+    padding-right: 15px;
     padding-bottom: 0px;
     border-radius: 10px;
 
-    max-width: 400px;
+    max-width: 350px;
 
     margin-left: 30px;
     margin-right: 30px;
@@ -187,4 +187,21 @@ p {
 
     color: #bdbec7;
     font-size: 10px;
+}
+
+.my-message .fa-chevron-down {
+    visibility: hidden;
+    /* Nascondi la freccia per impostazione predefinita */
+}
+
+.my-message:hover .fa-chevron-down {
+    visibility: visible;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.581);
+}
+
+.sent:hover .fa-chevron-down {
+    visibility: visible;
+    cursor: pointer;
+    background-color: #d5f9baac;
 }

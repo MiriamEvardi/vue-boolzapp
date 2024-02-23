@@ -230,6 +230,10 @@ createApp({
 
                 this.myNewMessage = '';
             }
+        },
+
+        deleteMessage(messageIndex) {
+            this.contacts.messages.message.splice(messageIndex, 1);
         }
     }
 }).mount("#app");
