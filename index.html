@@ -120,6 +120,8 @@
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                             </span>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" @click="deleteSelectedMessages()" href="#">Message
+                                        Info</a></li>
                                 <li><a class="dropdown-item" @click="deleteAllMessage()" href="#">Delete All
                                         Messages</a></li>
                             </ul>
@@ -179,9 +181,14 @@
                             aria-label="chat-text" aria-describedby="basic-addon1"
                             @keyup.enter="addNewMessage(activeIndex)" v-model="myNewMessage">
 
-                        <div class="px-4">
+                        <div class="px-4" v-if="!myNewMessage">
                             <i class="fa-solid fa-microphone fs-3 text-secondary"></i>
                         </div>
+
+                        <div class="px-4" v-else @click="sendMessage()">
+                            <i class="fa-solid fa-paper-plane fs-3 text-secondary"></i>
+                        </div>
+
                     </div>
 
                 </div>

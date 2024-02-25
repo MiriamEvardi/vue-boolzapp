@@ -7,13 +7,14 @@ createApp({
             activeIndex: 0,
             myNewMessage: '',
             search: '',
+            isTyping: false,
 
             randomAnswer: [
                 "Ok.",
                 "Grazie",
                 "Ciao",
                 "Sì",
-                "Grazie mille!",
+                "Dovresti saperlo.",
                 "Ci sentiamo dopo!",
                 "Fai come vuoi.",
                 "Non sei tu sono io",
@@ -244,6 +245,7 @@ createApp({
                 }, 1000);
 
                 this.myNewMessage = '';
+                this.isTyping = false;
             }
         },
 
@@ -269,6 +271,12 @@ createApp({
 
         deleteAllMessage() {
             this.contacts[this.activeIndex].messages = [];
+        },
+
+        sendMessage() {
+            if (this.myNewMessage !== '') {
+                this.addNewMessage();
+            }
         },
 
     }
