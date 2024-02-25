@@ -7,6 +7,8 @@ createApp({
             activeIndex: 0,
             myNewMessage: '',
             search: '',
+            selectingMessages: false,
+            selectedMessages: [],
 
             contacts: [
                 {
@@ -250,6 +252,11 @@ createApp({
 
         deleteMessage(messageIndex) {
             this.contacts[this.activeIndex].messages.splice(messageIndex, 1);
-        }
+        },
+
+        deleteAllMessage() {
+            this.contacts[this.activeIndex].messages = [];
+        },
+
     }
 }).mount("#app");
