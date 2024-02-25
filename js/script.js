@@ -236,10 +236,12 @@ createApp({
                 });
                 this.scrollToBottom();
 
+                const activeChat = this.activeIndex;
+
                 setTimeout(() => {
                     const randomIndex = Math.floor(Math.random() * this.randomAnswer.length);
 
-                    this.contacts[this.activeIndex].messages.push({
+                    this.contacts[activeChat].messages.push({
                         date: `${date} ${time}`,
                         message: this.randomAnswer[randomIndex],
                         status: 'received'
