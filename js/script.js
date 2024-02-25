@@ -273,6 +273,12 @@ createApp({
             this.contacts[this.activeIndex].messages = [];
         },
 
+
+        deleteConversation() {
+            this.contacts[this.activeIndex] = [];
+            this.contacts.splice(this.activeIndex, 1);
+        },
+
         sendMessage() {
             if (this.myNewMessage !== '') {
                 this.addNewMessage();
