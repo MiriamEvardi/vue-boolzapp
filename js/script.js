@@ -7,8 +7,19 @@ createApp({
             activeIndex: 0,
             myNewMessage: '',
             search: '',
-            selectingMessages: false,
-            selectedMessages: [],
+
+            randomAnswer: [
+                "Ok.",
+                "Grazie",
+                "Ciao",
+                "Sì",
+                "Grazie mille!",
+                "Ci sentiamo dopo!",
+                "Fai come vuoi.",
+                "Non sei tu sono io",
+                "Non sono arrabbiata.",
+                "No"
+            ],
 
             contacts: [
                 {
@@ -223,9 +234,11 @@ createApp({
                 });
 
                 setTimeout(() => {
+                    const randomIndex = Math.floor(Math.random() * this.randomAnswer.length);
+
                     this.contacts[this.activeIndex].messages.push({
                         date: `${date} ${time}`,
-                        message: "Ok",
+                        message: this.randomAnswer[randomIndex],
                         status: 'received'
                     });
                 }, 1000);
