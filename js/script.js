@@ -276,10 +276,13 @@ createApp({
             this.contacts[this.activeIndex].messages = [];
         },
 
-
         deleteConversation() {
-            this.contacts[this.activeIndex] = [];
             this.contacts.splice(this.activeIndex, 1);
+
+            if (this.activeIndex >= this.contacts.length) {
+                this.activeIndex = this.contacts.length - 1;
+                console.log(this.activeIndex)
+            }
         },
 
         sendMessage() {
