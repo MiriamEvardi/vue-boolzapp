@@ -8,6 +8,7 @@ createApp({
             myNewMessage: '',
             search: '',
             isTyping: false,
+            newContact: '',
 
             randomAnswer: [
                 "Ok.",
@@ -298,6 +299,15 @@ createApp({
                     }
                 );
             });
+        },
+
+        addNewContact() {
+            this.contacts.push({
+                name: this.newContact,
+                avatar: './img/default-avatar.jpg',
+                visible: true,
+                messages: []
+            })
         }
 
     }
