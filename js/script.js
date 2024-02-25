@@ -28,6 +28,9 @@ createApp({
                     name: 'Michele',
                     avatar: './img/avatar_1.jpg',
                     visible: true,
+                    lastActivity: '16:15',
+                    isTyping: false,
+                    online: false,
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -50,6 +53,9 @@ createApp({
                     name: 'Fabio',
                     avatar: './img/avatar_2.jpg',
                     visible: true,
+                    lastActivity: '16:30',
+                    isTyping: false,
+                    online: false,
                     messages: [
                         {
                             date: '20/03/2020 16:30:00',
@@ -72,6 +78,9 @@ createApp({
                     name: 'Samuele',
                     avatar: './img/avatar_3.jpg',
                     visible: true,
+                    lastActivity: '16:15',
+                    isTyping: false,
+                    online: false,
                     messages: [
                         {
                             date: '28/03/2020 10:10:40',
@@ -94,6 +103,9 @@ createApp({
                     name: 'Alessandro B.',
                     avatar: './img/avatar_4.jpg',
                     visible: true,
+                    lastActivity: '15:50',
+                    isTyping: false,
+                    online: false,
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -111,6 +123,9 @@ createApp({
                     name: 'Alessandro L.',
                     avatar: './img/avatar_5.jpg',
                     visible: true,
+                    lastActivity: '15:50',
+                    isTyping: false,
+                    online: false,
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -128,6 +143,9 @@ createApp({
                     name: 'Claudia',
                     avatar: './img/avatar_6.jpg',
                     visible: true,
+                    lastActivity: '15:50',
+                    isTyping: false,
+                    online: false,
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -150,6 +168,9 @@ createApp({
                     name: 'Federico',
                     avatar: './img/avatar_7.jpg',
                     visible: true,
+                    lastActivity: '15:50',
+                    isTyping: false,
+                    online: false,
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -167,6 +188,9 @@ createApp({
                     name: 'Davide',
                     avatar: './img/avatar_8.jpg',
                     visible: true,
+                    lastActivity: '15:51',
+                    isTyping: false,
+                    online: false,
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -223,14 +247,25 @@ createApp({
             this.activeIndex = index;
         },
 
+        getTimeStamp() {
+            const now = new Date();
+            const date = now.toLocaleDateString();
+            const time = now.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+            const timer = `${date} ${time}`
+            return timer;
+        },
+
+        getHour() {
+            const now = new Date();
+            const time = now.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+            return time;
+        },
+
         addNewMessage() {
             if (this.myNewMessage !== '') {
-                const now = new Date();
-                const date = now.toLocaleDateString();
-                const time = now.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
 
                 this.contacts[this.activeIndex].messages.push({
-                    date: `${date} ${time}`,
+                    date: `${this.getTimeStamp()}`,
                     message: this.myNewMessage,
                     status: 'sent'
                 });
@@ -239,18 +274,30 @@ createApp({
                 const activeChat = this.activeIndex;
 
                 setTimeout(() => {
+                    this.contacts[activeChat].isTyping = true;
+
+                }, 1000);
+
+                setTimeout(() => {
                     const randomIndex = Math.floor(Math.random() * this.randomAnswer.length);
 
                     this.contacts[activeChat].messages.push({
-                        date: `${date} ${time}`,
+                        date: `${this.getTimeStamp()}`,
                         message: this.randomAnswer[randomIndex],
                         status: 'received'
                     });
                     this.scrollToBottom();
-                }, 1000);
+                    this.contacts[activeChat].isTyping = false;
+                    this.contacts[activeChat].online = true;
+                }, 3000);
+
+                setTimeout(() => {
+                    this.contacts[activeChat].online = false;
+                    this.contacts[activeChat].lastActivity = this.getHour();
+
+                }, 5000);
 
                 this.myNewMessage = '';
-                this.isTyping = false;
             }
         },
 
@@ -311,6 +358,9 @@ createApp({
                 name: this.newContact,
                 avatar: './img/default-avatar.jpg',
                 visible: true,
+                lastActivity: this.getTimeStamp(),
+                isTyping: false,
+                online: false,
                 messages: []
             })
         }

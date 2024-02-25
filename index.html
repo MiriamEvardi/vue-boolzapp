@@ -117,7 +117,12 @@
 
                         <div class="ms-3 lh-2" v-for="(currentChat, index) in contacts" v-show="index == activeIndex">
                             <div> {{currentChat.name}}</div>
-                            <div class="last-access">Ultimo accesso alle {{getLastTime(currentChat)}}</div>
+                            <div v-if="!currentChat.isTyping && !currentChat.online" class="last-access">Ultimo accesso
+                                alle
+                                {{currentChat.lastActivity.split(' ')[0]}}
+                            </div>
+                            <div class="last-access" v-else-if="currentChat.isTyping">Sta scrivendo...</div>
+                            <div class="last-access" v-else-if="currentChat.online">Online</div>
                         </div>
                     </div>
 
