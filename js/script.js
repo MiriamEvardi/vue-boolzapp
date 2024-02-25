@@ -15,7 +15,7 @@ createApp({
                 "Ciao",
                 "Sì",
                 "Dovresti saperlo.",
-                "Ci sentiamo dopo!",
+                "Lasciami stare",
                 "Fai come vuoi.",
                 "Non sei tu sono io",
                 "Non sono arrabbiata.",
@@ -233,6 +233,7 @@ createApp({
                     message: this.myNewMessage,
                     status: 'sent'
                 });
+                this.scrollToBottom();
 
                 setTimeout(() => {
                     const randomIndex = Math.floor(Math.random() * this.randomAnswer.length);
@@ -242,6 +243,7 @@ createApp({
                         message: this.randomAnswer[randomIndex],
                         status: 'received'
                     });
+                    this.scrollToBottom();
                 }, 1000);
 
                 this.myNewMessage = '';
@@ -284,6 +286,19 @@ createApp({
                 this.addNewMessage();
             }
         },
+
+        scrollToBottom() {
+            const target = this.$refs.myScrollTarget;
+            this.$nextTick(() => {
+                target.scrollTo(
+                    {
+                        top: target.scrollHeight,
+                        left: 0,
+                        behavior: "smooth"
+                    }
+                );
+            });
+        }
 
     }
 }).mount("#app");
