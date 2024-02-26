@@ -90,7 +90,7 @@
                     <div class="input-group flex-nowrap">
                         <span class="input-group-text px-4" id="addon-wrapping"><i
                                 class="fa-solid fa-magnifying-glass"></i></span>
-                        <input type="text" class="form-control" placeholmder="Cerca una chat" aria-label="Username"
+                        <input type="text" class="form-control" placeholder="Cerca una chat" aria-label="Username"
                             aria-describedby="addon-wrapping" v-model="search">
                     </div>
                 </div>
@@ -182,7 +182,7 @@
                         :class="currentMessage.status == 'sent'? 'justify-content-end' : 'justify-content-start'"
                         @submit="addNewMessage()">
 
-                        <div class="my-message mb-2 position-relative me-2"
+                        <div class="my-message mb-2 position-relative"
                             :class="currentMessage.status == 'sent'? 'sent' : 'received'">
                             <div>
                                 <p><span class="message-text">{{ currentMessage.message }}</span></p>

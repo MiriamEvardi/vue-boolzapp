@@ -167,6 +167,10 @@ a {
     border: #000000 1px solid;
 }
 
+.dark-mode ::placeholder {
+    color: white;
+}
+
 .contacts {
     height: calc(100% - 84px - 70px - 82px + 28px);
     overflow-y: auto;

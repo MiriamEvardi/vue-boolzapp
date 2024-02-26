@@ -11,8 +11,6 @@ createApp({
             newContact: '',
             showSplash: true,
             isDarkMode: false,
-            showChat: false,
-            showContacts: true,
 
             randomAnswer: [
                 "Ok.",
