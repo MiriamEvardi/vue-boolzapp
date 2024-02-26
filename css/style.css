@@ -8,11 +8,34 @@ body {
     background-color: #d6dbd9;
 }
 
+
+.splash-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-image: linear-gradient(rgb(149, 149, 149), rgb(117, 255, 149));
+
+    z-index: 9999;
+
+    transition: opacity 1s ease;
+    opacity: 1;
+}
+
+.splash-page.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
 .background-top {
     position: relative;
     left: 0;
     right: 0;
     top: 0;
+
     min-width: 100%;
     height: 150px;
 
@@ -111,7 +134,7 @@ a {
 }
 
 .active {
-    background-color: #d5f9ba;
+    background-color: #e9ebeb;
 }
 
 .user-pic {

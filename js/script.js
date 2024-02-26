@@ -9,6 +9,7 @@ createApp({
             search: '',
             isTyping: false,
             newContact: '',
+            showSplash: true,
 
             randomAnswer: [
                 "Ok.",
@@ -216,6 +217,7 @@ createApp({
 
 
     computed: {
+        // filter by letters
         filteredList() {
             return this.contacts.filter(contact => {
                 return contact.name.toLowerCase().indexOf(this.search.toLowerCase()) !== -1;
@@ -223,7 +225,16 @@ createApp({
         }
     },
 
+    mounted() {
+        // show splash page
+        setTimeout(() => {
+            this.showSplash = false;
+        }, 1000);
+    },
+
     methods: {
+
+        // last message time send/received
         getLastTime(contact) {
             if (contact.messages && contact.messages.length > 0) {
                 const lastMessage = contact.messages[contact.messages.length - 1];
@@ -236,6 +247,7 @@ createApp({
             }
         },
 
+        // obtain locale time for messages
         getTime(message) {
             const dateTime = message.date.split(' ');
             const timeSplit = dateTime[1].split(':');
@@ -247,6 +259,7 @@ createApp({
             this.activeIndex = index;
         },
 
+        // obtained starting time used in addNewMessage
         getTimeStamp() {
             const now = new Date();
             const date = now.toLocaleDateString();
@@ -255,12 +268,15 @@ createApp({
             return timer;
         },
 
+        // obtained locale time (hour + minutes)
         getHour() {
             const now = new Date();
             const time = now.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
             return time;
         },
 
+
+        // send/receive new message
         addNewMessage() {
             if (this.myNewMessage !== '') {
 
@@ -273,11 +289,14 @@ createApp({
 
                 const activeChat = this.activeIndex;
 
+                // set start "is Typing" 1 second after send the message
                 setTimeout(() => {
                     this.contacts[activeChat].isTyping = true;
 
                 }, 1000);
 
+
+                // automatic answer + "is typing" finish
                 setTimeout(() => {
                     const randomIndex = Math.floor(Math.random() * this.randomAnswer.length);
 
@@ -291,6 +310,7 @@ createApp({
                     this.contacts[activeChat].online = true;
                 }, 3000);
 
+                // set 2 seconds "online" after received the answer 
                 setTimeout(() => {
                     this.contacts[activeChat].online = false;
                     this.contacts[activeChat].lastActivity = this.getHour();
@@ -301,6 +321,7 @@ createApp({
             }
         },
 
+        // last message
         getLastMessage(contact) {
             if (contact.messages && contact.messages.length > 0) {
                 const lastMessage = contact.messages[contact.messages.length - 1];
@@ -317,14 +338,17 @@ createApp({
             }
         },
 
+        // delete a single message
         deleteMessage(messageIndex) {
             this.contacts[this.activeIndex].messages.splice(messageIndex, 1);
         },
 
+        // delete all messages
         deleteAllMessage() {
             this.contacts[this.activeIndex].messages = [];
         },
 
+        // delete conversation
         deleteConversation() {
             this.contacts.splice(this.activeIndex, 1);
 
@@ -334,12 +358,14 @@ createApp({
             }
         },
 
+        // can't send an empty message
         sendMessage() {
             if (this.myNewMessage !== '') {
                 this.addNewMessage();
             }
         },
 
+        // automatic scroll
         scrollToBottom() {
             const target = this.$refs.myScrollTarget;
             this.$nextTick(() => {
@@ -353,6 +379,7 @@ createApp({
             });
         },
 
+        // add new contact
         addNewContact() {
             this.contacts.push({
                 name: this.newContact,
@@ -363,7 +390,7 @@ createApp({
                 online: false,
                 messages: []
             })
-        }
+        },
 
     }
 }).mount("#app");
