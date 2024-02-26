@@ -7,7 +7,6 @@ createApp({
             activeIndex: 0,
             myNewMessage: '',
             search: '',
-            isTyping: false,
             newContact: '',
             showSplash: true,
             isDarkMode: false,
