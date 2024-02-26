@@ -8,6 +8,11 @@ body {
     background-color: #d6dbd9;
 }
 
+.dark-mode body {
+    background-color: #515151;
+    color: white;
+}
+
 
 .splash-page {
     position: fixed;
@@ -42,6 +47,10 @@ body {
     background-color: #009688;
 }
 
+.dark-mode .background-top {
+    background-color: #151c21;
+}
+
 .chat-container {
     position: absolute;
     top: 0;
@@ -61,6 +70,10 @@ body {
     background-color: #fff;
 }
 
+.dark-mode .chat {
+    background-color: #112e2b;
+}
+
 img {
     height: 100%;
     border-radius: 30px;
@@ -72,10 +85,19 @@ img {
     background-color: #fff;
 }
 
+.dark-mode .side-bar {
+    background-color: #112e2b;
+}
+
 .profile,
 .addressee {
     height: 70px;
     background-color: #eaeaea;
+}
+
+.dark-mode .profile,
+.dark-mode .addressee {
+    background-color: #202d36;
 }
 
 .profile-pic {
@@ -91,13 +113,24 @@ i {
     color: #b1b1b1;
 }
 
+.dark-mode i {
+    color: black;
+}
+
 .notify-icon {
     background-color: #f2fbff;
+}
 
+.dark-mode .notify-icon {
+    background-color: #202d36;
 }
 
 .notify-icon i {
     color: #8edafc;
+}
+
+.dark-mode .notify-icon i {
+    color: #9a9a9a;
 }
 
 .notification {
@@ -106,17 +139,39 @@ i {
     background-color: #8edafc;
 }
 
+.dark-mode .notification {
+    background-color: #0b5951;
+}
+
 a {
     color: #547c8e;
     font-size: 14px;
+}
+
+.dark-mode a {
+    color: #cad5da;
 }
 
 .search-bar {
     background-color: #fafafa;
 }
 
+.dark-mode .search-bar {
+    background-color: #202d36;
+}
+
 #addon-wrapping {
     background-color: white;
+}
+
+.dark-mode #addon-wrapping {
+    background-color: #202d36;
+    border: black 1px solid;
+}
+
+.dark-mode input {
+    background-color: #2a3a46;
+    border: #000000 1px solid;
 }
 
 .contacts {
@@ -133,8 +188,17 @@ a {
     border: #e9ebeb 1px solid;
 }
 
+.dark-mode .contact {
+    background-color: #111e27;
+    border: black 1px solid;
+}
+
 .active {
     background-color: #e9ebeb;
+}
+
+.dark-mode .active {
+    background-color: #202d36;
 }
 
 .user-pic {
@@ -165,13 +229,21 @@ a {
     height: calc(100% - 70px - 70px);
 
     background-image: url(../img/mine.jpg);
-    background-color: #f0f0f0;
+
 
     overflow-y: auto;
 }
 
+.dark-mode .middle-container {
+    background-image: url(../img/dark.jpg);
+}
+
 .form-control {
     flex: 1;
+}
+
+.dark-mode .form-control {
+    background-color: #2a3a46;
 }
 
 .my-message,
@@ -202,8 +274,16 @@ p {
     background-color: #d5f9ba;
 }
 
+.dark-mode .sent {
+    background-color: #064743;
+}
+
 .received {
     background-color: #ffffff;
+}
+
+.dark-mode .received {
+    background-color: #202d36;
 }
 
 .time {
@@ -215,7 +295,6 @@ p {
 
 .my-message .fa-chevron-down {
     visibility: hidden;
-    /* Nascondi la freccia per impostazione predefinita */
 }
 
 .my-message:hover .fa-chevron-down {
@@ -228,4 +307,58 @@ p {
     visibility: visible;
     cursor: pointer;
     background-color: #d5f9baac;
+}
+
+#toggle-btn {
+    display: inline-block;
+    width: 86px;
+    height: 48px;
+    background-color: #1EC3F4;
+    background-size: 100%;
+    border-radius: 24px;
+    position: relative;
+    transition: all ease-in-out .4s;
+    cursor: pointer;
+}
+
+#toggle-btn::before {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    background-color: white;
+    border-radius: 50%;
+    left: 6px;
+    top: 6px;
+    content: '';
+    transition: all ease-in-out .4s;
+    z-index: 10;
+}
+
+#toggle-btn.toggle-btn--dark {
+    background-color: #13447E;
+}
+
+#toggle-btn.toggle-btn--dark::before {
+    left: 44px;
+}
+
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: rgb(159, 159, 159);
+}
+
+.dark-mode *::-webkit-scrollbar-track {
+    background-color: #515151;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgb(187, 187, 187);
+    border-radius: 20px;
+}
+
+.dark-mode *::-webkit-scrollbar-thumb {
+    background-color: #202d36;
 }

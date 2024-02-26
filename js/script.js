@@ -10,6 +10,7 @@ createApp({
             isTyping: false,
             newContact: '',
             showSplash: true,
+            isDarkMode: false,
 
             randomAnswer: [
                 "Ok.",
@@ -219,10 +220,12 @@ createApp({
     computed: {
         // filter by letters
         filteredList() {
+
             return this.contacts.filter(contact => {
                 return contact.name.toLowerCase().indexOf(this.search.toLowerCase()) !== -1;
             });
-        }
+
+        },
     },
 
     mounted() {
@@ -316,7 +319,6 @@ createApp({
                     this.contacts[activeChat].lastActivity = this.getHour();
 
                 }, 5000);
-
                 this.myNewMessage = '';
             }
         },
@@ -354,7 +356,6 @@ createApp({
 
             if (this.activeIndex >= this.contacts.length) {
                 this.activeIndex = this.contacts.length - 1;
-                console.log(this.activeIndex)
             }
         },
 
@@ -391,6 +392,16 @@ createApp({
                 messages: []
             })
         },
+
+        toggleDarkMode() {
+            this.isDarkMode = !this.isDarkMode;
+            const toggleBtn = document.getElementById('toggle-btn');
+
+            if (toggleBtn) {
+                toggleBtn.classList.toggle('toggle-btn--dark', this.isDarkMode);
+            }
+            document.documentElement.classList.toggle('dark-mode', this.isDarkMode);
+        }
 
     }
 }).mount("#app");
