@@ -70,7 +70,8 @@ body {
     background-color: #fff;
 }
 
-.dark-mode .chat {
+.dark-mode .chat,
+.dark-mode .side-bar {
     background-color: #112e2b;
 }
 
@@ -85,10 +86,6 @@ img {
     background-color: #fff;
 }
 
-.dark-mode .side-bar {
-    background-color: #112e2b;
-}
-
 .profile,
 .addressee {
     height: 70px;
@@ -96,7 +93,11 @@ img {
 }
 
 .dark-mode .profile,
-.dark-mode .addressee {
+.dark-mode .addressee,
+.dark-mode .notify-icon,
+.dark-mode .search-bar,
+.dark-mode .active,
+.dark-mode .received {
     background-color: #202d36;
 }
 
@@ -119,10 +120,6 @@ i {
 
 .notify-icon {
     background-color: #f2fbff;
-}
-
-.dark-mode .notify-icon {
-    background-color: #202d36;
 }
 
 .notify-icon i {
@@ -154,10 +151,6 @@ a {
 
 .search-bar {
     background-color: #fafafa;
-}
-
-.dark-mode .search-bar {
-    background-color: #202d36;
 }
 
 #addon-wrapping {
@@ -195,10 +188,6 @@ a {
 
 .active {
     background-color: #e9ebeb;
-}
-
-.dark-mode .active {
-    background-color: #202d36;
 }
 
 .user-pic {
@@ -280,10 +269,6 @@ p {
 
 .received {
     background-color: #ffffff;
-}
-
-.dark-mode .received {
-    background-color: #202d36;
 }
 
 .time {
