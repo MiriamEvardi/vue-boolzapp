@@ -11,6 +11,8 @@ createApp({
             newContact: '',
             showSplash: true,
             isDarkMode: false,
+            showChat: false,
+            showContacts: true,
 
             randomAnswer: [
                 "Ok.",
@@ -233,6 +235,23 @@ createApp({
         setTimeout(() => {
             this.showSplash = false;
         }, 1000);
+
+        window.addEventListener('resize', function () {
+            const sideBarDiv = document.getElementById("sideBar");
+            const textDiv = document.getElementById('textChat');
+
+            if (window.innerWidth > 768) {
+                sideBarDiv.style.width = "0";
+                textDiv.style.width = "0";
+                sideBarDiv.style.flexGrow = "1";
+                textDiv.style.flexGrow = "2";
+            } else {
+                sideBarDiv.style.width = "0";
+                textDiv.style.width = "100vw";
+                sideBarDiv.style.flexGrow = "0";
+                textDiv.style.flexGrow = "1";
+            }
+        })
     },
 
     methods: {
@@ -260,6 +279,16 @@ createApp({
 
         activeContact(index) {
             this.activeIndex = index;
+
+            const sideBarDiv = document.getElementById("sideBar");
+            const textDiv = document.getElementById('textChat');
+
+            if (window.innerWidth <= 768) {
+                sideBarDiv.style.width = "0vw";
+                textDiv.style.width = "100vw";
+                sideBarDiv.style.flexGrow = "0";
+                textDiv.style.flexGrow = "1";
+            }
         },
 
         // obtained starting time used in addNewMessage
@@ -401,6 +430,18 @@ createApp({
                 toggleBtn.classList.toggle('toggle-btn--dark', this.isDarkMode);
             }
             document.documentElement.classList.toggle('dark-mode', this.isDarkMode);
+        },
+
+        backToContacts() {
+            const sideBarDiv = document.getElementById("sideBar");
+            const textDiv = document.getElementById('textChat');
+
+            if (window.innerWidth <= 768) {
+                sideBarDiv.style.width = "100vw";
+                textDiv.style.width = "0vw";
+                sideBarDiv.style.flexGrow = "1";
+                textDiv.style.flexGrow = "0";
+            }
         }
 
     }

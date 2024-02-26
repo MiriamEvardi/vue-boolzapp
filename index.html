@@ -35,10 +35,10 @@
 
 
         <!-- start chat container -->
-        <div v-if="showSplash == false" class="chat-container">
+        <div v-if="showSplash == false" class="chat-container container-fluid container-lg">
 
             <!-- sidebar -->
-            <div class="side-bar border-end border-secondary-subtle">
+            <div class="side-bar border-end border-secondary-subtle" id="sideBar">
 
 
                 <!-- my profile -->
@@ -52,8 +52,8 @@
                     <div class="d-flex justify-content-between align-items-center gap-3 fs-5 me-3">
                         <div @click="toggleDarkMode()" id="toggle-btn" :class="{ 'toggle-btn--dark': isDarkMode }">
                         </div>
-                        <i class="fa-solid fa-circle-notch"></i>
-                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-circle-notch d-md-none"></i>
+                        <i class="fa-solid fa-message d-md-none"></i>
 
                         <!-- start dropdown contacts -->
                         <div class="dropdown">
@@ -90,8 +90,8 @@
                     <div class="input-group flex-nowrap">
                         <span class="input-group-text px-4" id="addon-wrapping"><i
                                 class="fa-solid fa-magnifying-glass"></i></span>
-                        <input type="text" class="form-control" placeholmder="Cerca o inizia una nuova chat"
-                            aria-label="Username" aria-describedby="addon-wrapping" v-model="search">
+                        <input type="text" class="form-control" placeholmder="Cerca una chat" aria-label="Username"
+                            aria-describedby="addon-wrapping" v-model="search">
                     </div>
                 </div>
 
@@ -120,11 +120,16 @@
 
 
 
-            <div class="chat d-flex flex-column justify-content-between">
+            <div class="chat d-flex flex-column justify-content-between" id="textChat">
 
                 <!-- user profile when chat is opened -->
                 <div class="addressee d-flex justify-content-between align-items-center">
-                    <div class="d-flex align-items-center">
+
+                    <div class="d-flex align-items-center ms-2 ">
+                        <div @click="backToContacts()" class="back-arrow d-block d-md-none ">
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+
                         <div class="profile-pic me-1" v-for="(currentChat, index) in contacts"
                             v-show="index == activeIndex">
                             <img :src="currentChat.avatar" alt="">
