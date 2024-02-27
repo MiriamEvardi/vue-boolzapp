@@ -215,18 +215,6 @@ createApp({
         }
     },
 
-
-    computed: {
-        // filter by letters
-        filteredList() {
-
-            return this.contacts.filter(contact => {
-                return contact.name.toLowerCase().indexOf(this.search.toLowerCase()) !== -1;
-            });
-
-        },
-    },
-
     mounted() {
         // show splash page
         setTimeout(() => {

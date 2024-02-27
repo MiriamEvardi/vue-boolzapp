@@ -98,9 +98,9 @@
 
                 <!-- contacts -->
                 <div class="contacts">
-
-                    <div class="contact d-flex align-items-start pt-2" v-for="(currentContact, index) in filteredList"
-                        :class=" index == activeIndex ? 'active' : ''" @click="activeContact(index)">
+                    <div class="contact align-items-start pt-2" v-for="(currentContact, index) in contacts"
+                        :class=" index == activeIndex ? 'active' : ''" @click="activeContact(index)"
+                        v-show="currentContact.name.toLowerCase().includes(search.toLowerCase())">
                         <div class="user-pic me-3">
                             <img :src="currentContact.avatar" alt="">
                         </div>

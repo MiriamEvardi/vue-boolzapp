@@ -180,6 +180,7 @@ a {
     height: 82px;
     padding-left: 10px;
     cursor: pointer;
+    display: flex;
 
     background-color: white;
     border: #e9ebeb 1px solid;
